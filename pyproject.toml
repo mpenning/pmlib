@@ -73,7 +73,7 @@ classifiers=[
 
 # Do NOT remove this... requirements.txt is not sufficient for dependencies
 [tool.poetry.dependencies]
-python = ">=3.8,<4.0.0"
+python = ">=3.9,<4.0.0"
 attrs = "23.2.0"
 loguru = "0.7.2"
 tasklib = "2.5.1"
