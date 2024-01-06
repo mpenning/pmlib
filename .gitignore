@@ -1,0 +1,3 @@
+.coverage
+pmlib/__pycache__/
+tests/__pycache__/
