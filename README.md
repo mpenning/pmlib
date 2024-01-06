@@ -6,7 +6,8 @@
 
 # Installation
 
-`pip install pmlib`
+- Install [TaskWarrior][2]
+- `pip install pmlib`
 
 # Usage
 
