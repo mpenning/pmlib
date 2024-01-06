@@ -13,13 +13,10 @@
 Assume you want to create three tasks, two of which depend on the first:
 
 ```python
-import sys
-
 from pmlib.task import OwnedTask
 from pmlib.task import OwnedTaskWarrior
 
 otw = OwnedTaskWarrior(data_location="~/.pm", create=True)
-otw.purge_project("ciscoconfparse")
 newtask01 = OwnedTask(otw,
                       description="Task 01",
                       due="2023-12-26",
