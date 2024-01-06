@@ -89,37 +89,6 @@ pylama:
 	# Good usability info here -> https://pythonspeed.com/articles/pylint/
 	pylama --ignore=E501,E301,E265,E266 pmlib/*py | less -XR
 
-.PHONY: pylint
-pylint:
-	@echo "$(COL_GREEN)>> running pylint against pmlib$(COL_END)"
-	# Good usability info here -> https://pythonspeed.com/articles/pylint/
-	pylint --rcfile=./utils/pylintrc --ignore-patterns='^build|^dist|utils/pylintrc|README.rst|CHANGES|LICENSE|MANIFEST.in|Makefile|TODO' --output-format=colorized * | less -XR
-
-.PHONY: tutorial
-tutorial:
-	@echo ">> building the pmlib tutorial"
-	rst2html5 --jquery --reveal-js --pretty-print-code --embed-stylesheet --embed-content --embed-images tutorial/ccp_tutorial.rst > tutorial/ccp_tutorial.html
-
-.PHONY: parse-ios
-parse-ios:
-	cd tests; python parse_test.py 1 | less -XR
-
-.PHONY: parse-ios-factory
-parse-ios-factory:
-	cd tests; python parse_test.py 2 | less -XR
-
-.PHONY: parse-ios-banner
-parse-iosxr-banner:
-	cd tests; python parse_test.py 3 | less -XR
-
-.PHONY: perf-acl
-perf-acl:
-	cd tests; python performance_case.py 5 | less -XR
-
-.PHONY: perf-factory-intf
-perf-factory-intf:
-	cd tests; python performance_case.py 6 | less -XR
-
 .PHONY: flake
 flake:
 	flake8 --ignore E501,E226,E225,E221,E303,E302,E265,E128,E125,E124,E41,W291 --max-complexity 10 pmlib | less
@@ -138,12 +107,6 @@ pydocstyle:
 doctest:
 	# Run the doc tests
 	cd sphinx-doc; make doctest
-
-.PHONY: rm-timestamp
-rm-timestamp:
-	@echo "$(COL_GREEN)>> delete .pip_dependency if older than a day$(COL_END)"
-	#delete .pip_dependency if older than a day
-	$(shell find .pip_dependency -mtime +1 -exec rm {} \;)
 
 .PHONY: timestamp
 timestamp:
@@ -203,6 +166,7 @@ clean:
 help:
 	@# An @ sign prevents outputting the command itself to stdout
 	@echo "help                 : You figured that out ;-)"
+	@echo "dep                  : Install project dependencies"
 	@echo "pypi                 : Build the project and push to pypi"
 	@echo "repo-push            : Build the project and push to github"
 	@echo "test                 : Run all doctests and unit tests"
@@ -212,9 +176,4 @@ help:
 	@echo "coverage             : Run tests with coverage - Specific to this build env"
 	@echo "flake                : Run PyFlake code audit w/ McCabe complexity"
 	@echo "clean                : Housecleaning"
-	@echo "parse-ios            : Parse configs/sample_01.ios with default args"
-	@echo "parse-ios-factory    : Parse configs/sample_01.ios with factory=True"
-	@echo "parse-iosxr-banner   : Parse an interesting IOSXR banner"
-	@echo "perf-acl             : cProfile configs/sample_05.ios (100 acls)"
-	@echo "perf-factory-intf    : cProfile configs/sample_06.ios (many intfs, factory=True)"
 	@echo ""

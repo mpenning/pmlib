@@ -1,5 +1,5 @@
 
-from argparse import ArgumentParser, Namespace, FileType
+from argparse import ArgumentParser, Namespace
 from argparse import _SubParsersAction
 from typing import List
 import shlex
@@ -204,7 +204,8 @@ class Parser:
             action='store_true',
             help="Show this task uuid")
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     parser = Parser()
     args = parser.parse()
     print(args)
