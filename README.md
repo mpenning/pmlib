@@ -11,7 +11,7 @@
 
 # Gantt Chart
 
-![gantt_image](https://github.com/mpenning/pmlib/docs/gantt.png)
+[![gantt_image](https://github.com/mpenning/pmlib/docs/gantt.png)](https://github.com/mpenning/pmlib/docs/gantt.png)
 
 # Usage
 
