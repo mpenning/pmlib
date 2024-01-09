@@ -15,7 +15,7 @@
 
 # Usage
 
-Assume you want to create three tasks, two of which depend on the first:
+Assume you want to create nine tasks, eight of which are dependencies of the first task:
 
 ```python
 from pmlib.task import OwnedTask
