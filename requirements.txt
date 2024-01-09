@@ -6,6 +6,7 @@ tasklib == 2.5.1
 email-validator == 2.1.0.post1
 texttable == 1.7.0
 matplotlib == 3.8.2
+pandas == 2.1.4
 # Development requirements
 twine == 4.0.2
 pylama == 8.4.1
